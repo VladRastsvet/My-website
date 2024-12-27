@@ -63,6 +63,50 @@
             border: 1px dashed #bbb;
             margin: 20px 0;
         }
+
+        .life-news {
+            margin-top: 40px;
+        }
+
+        .life-news-header {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid gray;
+            padding-bottom: 10px;
+        }
+
+        .news-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+        .news-card:hover {
+            transform: scale(1.02);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .news-card-body {
+            padding: 15px;
+        }
+
+        .news-card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .news-card-text {
+            font-size: 1rem;
+            color: #555;
+        }
     </style>
 </head>
 <body>
@@ -124,6 +168,40 @@
                 </p>
             </aside>
         </div>
+
+        <!-- Life News Section -->
+        <section class="life-news">
+            <h2 class="life-news-header">Новости из моей жизни</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <img src="photo-placeholder.jpg" alt="Photo">
+                        <div class="news-card-body">
+                            <h3 class="news-card-title">Последняя фотосессия</h3>
+                            <p class="news-card-text">Снято на плёнку в осеннем парке. Эксперимент с освещением и композицией.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <img src="video-placeholder.jpg" alt="Video">
+                        <div class="news-card-body">
+                            <h3 class="news-card-title">Новый видеопроект</h3>
+                            <p class="news-card-text">Короткометражка о городе ночью. Использованы архивные кадры.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <img src="book-placeholder.jpg" alt="Books">
+                        <div class="news-card-body">
+                            <h3 class="news-card-title">Прочитанная книга</h3>
+                            <p class="news-card-text">"1984" Джорджа Оруэлла. Глубокий анализ общества и контроля.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Footer -->
         <footer>
