@@ -36,39 +36,32 @@
 
       <section class="mt-5">
         <h2 class="text-center mb-4">Новости из моей жизни</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <!-- Новость 1 -->
-          <div class="col">
-            <div class="card h-100">
-              <img src="https://via.placeholder.com/150" class="card-img-top" alt="Photography">
-              <div class="card-body">
-                <h5 class="card-title"><i class="fa fa-camera" aria-hidden="true"></i> Фотография</h5>
-                <p class="card-text">Недавно я сделал серию снимков на плёнку в стиле винтаж. Получилось очень атмосферно!</p>
-              </div>
-            </div>
-          </div>
-          <!-- Новость 2 -->
-          <div class="col">
-            <div class="card h-100">
-              <img src="https://via.placeholder.com/150" class="card-img-top" alt="Books">
-              <div class="card-body">
-                <h5 class="card-title"><i class="fa fa-book" aria-hidden="true"></i> Книги</h5>
-                <p class="card-text">Прочитал книгу "1984" Джорджа Оруэлла. Очень вдохновляющее произведение!</p>
-              </div>
-            </div>
-          </div>
-          <!-- Новость 3 -->
-          <div class="col">
-            <div class="card h-100">
-              <img src="https://via.placeholder.com/150" class="card-img-top" alt="Video">
-              <div class="card-body">
-                <h5 class="card-title"><i class="fa fa-video-camera" aria-hidden="true"></i> Видео</h5>
-                <p class="card-text">Смонтировал новый короткометражный фильм. Посмотрите, я вложил в него душу!</p>
-              </div>
-            </div>
-          </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="news-container">
+          <!-- Новости будут подгружены динамически -->
         </div>
       </section>
     </div>
+
+    <script>
+      fetch('posts.json')
+        .then(response => response.json())
+        .then(data => {
+          const newsContainer = document.getElementById('news-container');
+          data.posts.forEach(post => {
+            const newsElement = document.createElement('div');
+            newsElement.classList.add('col');
+            newsElement.innerHTML = `
+              <div class="card h-100">
+                <img src="${post.image || 'https://via.placeholder.com/150'}" class="card-img-top" alt="${post.title}">
+                <div class="card-body">
+                  <h5 class="card-title">${post.title}</h5>
+                  <p class="card-text">${post.content}</p>
+                </div>
+              </div>`;
+            newsContainer.appendChild(newsElement);
+          });
+        })
+        .catch(error => console.error('Ошибка загрузки новостей:', error));
+    </script>
   </body>
 </html>
